@@ -5,11 +5,12 @@ import Link from 'next/link'
 import signImage from '../../public/images/signup.png'
 import  {useState}  from 'react';
 import { useRouter } from "next/navigation";
-import {signIn, signOut,useSession} from 'next-auth/react';
+// import {signIn, signOut,useSession} from 'next-auth/react';
 
-const {data:session }=useSession();
+
 
 export default function signup() {
+  // const {data:session }=useSession();
     const router = useRouter()
     const [route, setRoute] = useState("")
     const handleSubmit = (e: React.ChangeEvent<any>) => {
@@ -74,7 +75,7 @@ export default function signup() {
         </div>
         <div className="flex items-center justify-center mt-4 gap-x-2">
           <button
-            onClick={()=>signIn()}
+            // onClick={()=>signIn()}
             type="button"
             className="flex items-center justify-center w-1/3 p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
           >
