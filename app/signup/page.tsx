@@ -1,13 +1,14 @@
 "use client"
+// import LoginNavbar from '../Components/Loginavbar'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import signImage from '../../public/images/signup.png'
 import  {useState}  from 'react';
 import { useRouter } from "next/navigation";
-import {signIn, signOut,useSession} from 'next-auth/react';
+import {signIn,useSession} from 'next-auth/react'
 
-const {data:session }=useSession();
+
 
 export default function signup() {
     const router = useRouter()
@@ -16,9 +17,12 @@ export default function signup() {
         e.preventDefault()
         router.push('../Login')
     }
+    const session =useSession(); 
+    // console.log(session);
   return (
    
-
+    <div>
+      {/* <LoginNavbar/> */}
     <div className="flex flex-col items-center md:flex-row md:h-screen">
       <div className="flex items-center justify-center w-full md:w-1/2">
         <Image src={signImage} alt="Login Image" width={410} height={410} />
@@ -74,7 +78,7 @@ export default function signup() {
         </div>
         <div className="flex items-center justify-center mt-4 gap-x-2">
           <button
-            onClick={()=>signIn()}
+          onClick={()=>signIn("google")}
             type="button"
             className="flex items-center justify-center w-1/3 p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
           >
@@ -93,6 +97,6 @@ export default function signup() {
          
         </div>
       </div>
-    
+      </div>
   )
 }

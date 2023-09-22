@@ -1,9 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import flat from "./Flat-Journalist.png";
+import Navbar from '../Components/Navbar'
+import InsideNavbar from '../Components/insideNavbar'
+
 export default function viewCredentials() {
   return (
     <main>
+      <Navbar/>
+      <InsideNavbar />
       <div className="congo">
         <div className="congo-wrap flex-1">
             Congratulations, Person! <br />

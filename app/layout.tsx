@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
-// import Navbar from './Components/Navbar'
-import LoginNavbar from './Components/Loginavbar'
+
+import AuthProvider from './Components/AuthProvider'
 
 const rubik = Rubik({ subsets: ['latin'] })
 
@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rubik.className}>
-        {/* <Navbar /> */}
-        <LoginNavbar/>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   )

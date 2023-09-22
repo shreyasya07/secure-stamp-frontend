@@ -1,22 +1,25 @@
 "use client"
+// import LoginNavbar from '../Components/Loginavbar'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import login from  '../../public/images/login.png'
 import  {useState}  from 'react';
 import { useRouter } from "next/navigation";
+import {signIn,useSession} from 'next-auth/react'
  
 export default function Login() {
     const router = useRouter()
     const [route, setRoute] = useState("")
     const handleSubmit = (e: React.ChangeEvent<any>) => {
         e.preventDefault()
-        router.push('../Generate')
+        router.push('../Dashboard')
     }
+    const session =useSession(); 
    
   return ( 
-   
-
+    <div>
+    {/* <LoginNavbar/> */}
     <div className="flex flex-col items-center md:flex-row md:h-screen">
       <div className="flex items-center justify-center w-full md:w-1/2">
         <Image src={login} alt="Login Image" width={450} height={450} />
@@ -24,7 +27,7 @@ export default function Login() {
       <div className="flex flex-col items-center justify-center w-full md:w-1/4">
         <div className="w-full max-w-md space-y-8">
           <div>
-            <h1 className="text-5xl font-bold">Welcome back!</h1>
+            <h1 className="text-5xl font-bold">Login</h1>
         
              <p className="mt-4 text-sm text-center text-gray-700"/>
           Don't have an account?{" "}
@@ -100,6 +103,7 @@ export default function Login() {
         </div>
         <div className="flex items-center justify-center mt-4 gap-x-2">
           <button
+          onClick={()=>signIn("google")}
             type="button"
             className="flex items-center justify-center w-1/3 p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
           >
@@ -118,6 +122,6 @@ export default function Login() {
          
         </div>
       </div>
-    
+      </div>
   )
 }

@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
-// import Navbar from '../Components/Navbar'
-// import InsideNavbar from '../Components/insideNavbar'
+import Navbar from '../Components/Navbar'
 import ViewCredentials from '../viewCredential/page';
 import { useRouter } from "next/navigation";
 import {useState} from 'react'
@@ -16,7 +15,9 @@ export default function generateCredentials() {
     }
   return (
     <main>
+        <Navbar />
         <InsideNavbar />
+
         <div className='form' >
             <h2 className='form-head'>Certificate Form</h2>
             <div className='flex flex-col'>

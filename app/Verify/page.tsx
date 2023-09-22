@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from '../Components/Navbar'
 import Image from 'next/image';
 import verifyImage from '../../public/images/verifyImage.png';
 import UploadBlock from '../../public/images/UploadBlock.png';
@@ -6,6 +7,7 @@ import UploadBlock from '../../public/images/UploadBlock.png';
 export default function Verify() {
   return (
     <div>
+      <Navbar/>
        <div className="flex items-center justify-center">
         <h1 className="text-6xl font-bold tracking-widest">Verify Certificate</h1>
        </div>
